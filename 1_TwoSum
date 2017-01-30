@@ -1,0 +1,35 @@
+import random
+import timeit
+
+class Solution(object):
+
+    def twoSum(self, nums, target):
+        nums_length = len(nums)
+        for i in range(nums_length):
+            for j in range(i + 1, nums_length):
+                if nums[i] + nums[j] == target:
+                    print(str([i, j]))
+                else:
+                    continue
+
+#Randomly generate "limit" integers in an "amount" elements array for testing purpose
+    def testing(self, amount, limit):
+        x = [amt for amt in range(amount)]
+        target = random.randrange(0, limit)
+        for i in range(len(x)):
+            x[i] = random.randrange(0, limit)
+        print("Testing Array: " + str(x))
+        print("Testing Target: " + str(target))
+        return [x, target]
+
+test1 = Solution()
+answer = Solution()
+
+list, goal = test1.testing(1000, 101)
+
+start = timeit.default_timer()
+answer.twoSum(list, goal)
+stop = timeit.default_timer()
+
+print("Run Time: ", '%0.2f Sec' % (stop - start))
+
