@@ -1,0 +1,29 @@
+class Solution (object):
+    def hammingDistance(self, x, y):
+        x_bi = [0] * 32
+        y_bi = [0] * 32
+        i, j = 31, 31
+        distance = 0
+
+        while x > 0:
+            x_bi[i] = x % 2
+            x = int(x / 2)
+            i -= 1
+        while y > 0:
+            y_bi[j] = y % 2
+            y = int(y / 2)
+            j -= 1
+
+        for k in range(len(x_bi)):
+            if x_bi[k] != y_bi[k]:
+                distance += 1
+
+        print(x_bi)
+        print(y_bi)
+
+        return (distance)
+
+
+test = Solution()
+distance = test.hammingDistance(1, 4)
+print(distance)
