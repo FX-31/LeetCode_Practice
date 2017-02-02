@@ -1,4 +1,6 @@
 class Solution (object):
+########## Method 1 ###########
+
     def hammingDistance(self, x, y):
         x_bi = [0] * 32
         y_bi = [0] * 32
@@ -22,8 +24,24 @@ class Solution (object):
         print(y_bi)
 
         return (distance)
+        
+########## Method 2 ###########
 
+    def hammingDistance2(self, x, y):
+        count = 0
+        z = x ^ y
+
+        while z > 0:
+            if z % 2 == 1:
+                count += 1
+            z = int(z / 2)
+
+        return count
+
+########### Testing ############
 
 test = Solution()
 distance = test.hammingDistance(1, 4)
-print(distance)
+distance2 = test.hammingDistance2(1, 4)
+
+print(distance, distance2)
