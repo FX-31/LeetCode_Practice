@@ -1,0 +1,15 @@
+class Solution(object):
+    def findComplement(self, num):
+        i, sum = 0, 0
+
+        while num > 0:
+            if num % 2 == 0:
+                sum += 2 ** i
+            num = int(num / 2)
+            i += 1
+            
+        return sum
+       
+       
+test = Solution()
+print(test.findComplement(8))
